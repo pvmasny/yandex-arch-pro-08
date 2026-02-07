@@ -1,0 +1,15 @@
+# prometheus-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus-svc
+  namespace: monitoring
+spec:
+  selector:
+    app.kubernetes.io/name: prometheus
+    app.kubernetes.io/instance: prometheus
+  ports:
+    - protocol: TCP
+      port: 9090
+      targetPort: 9090
+  type: ClusterIP
